@@ -1,0 +1,53 @@
+// Program description: lab 1: determines each person’s share of an equally split tab at a restauran. seconde part is for it to convert the bill to pesos.
+// author bunnybyte
+// since 2-6-25
+
+import java.util.Scanner;
+
+public class TabSplitter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // varabiles put at start
+        // Scanner scanner = new Scanner(System.in);
+        // double tabTotal, tipPercentage, taxPercentage, tipTotal, taxTotal, totalBill, amountPerPerson, conversionRate, amountInPesos;
+        // int numberOfPeople;
+
+        // Name of restaurant
+        System.out.println("Jason's Pancake House");
+
+        // infromation person will enter
+        System.out.print("Enter total of bill:");
+        double tabTotal = scanner.nextDouble();
+
+        System.out.print("Enter tip as decimal (do it like this .15):");
+        double tipPercentage = scanner.nextDouble();
+
+        System.out.print("Enter sales tax as decimal (do it like this .05%):");
+        double taxPercentage = scanner.nextDouble();
+
+        System.out.print("Enter number of people splitting the bill:");
+        int numberOfPeople = scanner.nextInt();
+
+        // math
+        double tipTotal = tabTotal * tipPercentage;
+        double taxTotal = tabTotal * taxPercentage;
+        double totalBill = tabTotal + tipTotal + taxTotal;
+        double amountPerPerson = totalBill / numberOfPeople;
+
+        // Conversion math for pesos
+        double conversionRate = 20.57;
+        double amountInPesos = amountPerPerson * conversionRate;
+
+        // Display results
+        System.out.printf("\nSubtotal: $%.2f\n", tabTotal);
+        System.out.printf("Tip: $%.2f\n", tipTotal);
+        System.out.printf("Tax: $%.2f\n", taxTotal);
+        System.out.printf("Total: $%.2f\n", totalBill);
+        System.out.printf("Amount per person: $%.2f\n", amountPerPerson);
+        System.out.printf("Total amount in Pesos per person: %.2f\n", amountInPesos);
+
+        // Close scanner
+        scanner.close();
+    }
+}
