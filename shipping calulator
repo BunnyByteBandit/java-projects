@@ -1,0 +1,54 @@
+// Program: This program calculates the shipping cost based on the weight of the package.
+// @author bunnybyte
+// @date 2-14-25
+
+import java.util.Scanner;
+public class ShippingCostCalculator {
+    
+    public static void main(String[] args) {
+        
+        // Create Scanner object to allow infromation to be entered in the system
+        
+        Scanner scanner = new Scanner(System.in);
+
+        // Welcome message to the person
+        
+        System.out.println("Welcome to the jason's shipping corp.");
+
+        // Ask person the for the weight of the package
+        
+        System.out.print("Enter the weight of the package in pounds: ");
+        double weight = scanner.nextDouble();
+
+        // Check if weight is valid number/ not below zero if not error messsage will play
+       
+        if (weight < 0) {
+            System.out.println("Error you can not enter in a weight that is less then zero.");
+        } else if (weight > 20) {
+            System.out.println("The package is too heavy to be shipped. the package must be less then 20 pounds");
+        } else {
+           
+           
+        // Calculate shipping cost based on weight that is entered in above portion
+           
+            double cost = 0;
+            if (weight <= 1) {
+                cost = 2.75;
+            } else if (weight <= 5) {
+                cost = 5.75;
+            } else if (weight <= 10) {
+                cost = 10.75;
+            } else if (weight <= 20) {
+                cost = 12.75;
+            }
+
+        // Display the cost of the shipping at this part
+            
+            System.out.println("The shipping will cost you: $" + cost);
+        }
+
+        // Close the scanner
+        
+        scanner.close();
+    }
+}
